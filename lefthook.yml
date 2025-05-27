@@ -1,0 +1,10 @@
+pre-commit:
+  parallel: true
+  commands:
+    check:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npm run lint:check --staged
+    type-check:
+      run: npx tsc --noEmit
+    # test:
+    #   run: npm test:run {staged_files}%
