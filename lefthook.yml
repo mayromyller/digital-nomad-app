@@ -3,7 +3,7 @@ pre-commit:
   commands:
     check:
       glob: "*.{js,ts,jsx,tsx}"
-      run: npm run lint:check --staged
+      run: npm run lint:check --staged --fix
     type-check:
       run: npx tsc --noEmit
     # test:
