@@ -1,14 +1,18 @@
-import { Box } from '@/src/components/box/box'
-import { Text } from '@/src/components/text/text'
-import { useAppTheme } from '@/src/theme/use-app-theme'
+import { FlatList, type ListRenderItemInfo } from 'react-native'
+
+import { CityCard } from '@/src/components/city-card/city-card'
+import { Screen } from '@/src/components/screen/screen'
+import { cities } from '@/src/data/cities'
+import type { CityPreview } from '@/src/types'
 
 export default function HomeScreen() {
-	const { colors } = useAppTheme()
+	function renderItem({ item }: ListRenderItemInfo<CityPreview>) {
+		return <CityCard cityPreview={item} />
+	}
+
 	return (
-		<Box flex={1} backgroundColor="mainBackground">
-			<Text marginTop="xl" color="text">
-				Home Screen {colors.text}
-			</Text>
-		</Box>
+		<Screen flex={1}>
+			<FlatList data={cities} renderItem={renderItem} />
+		</Screen>
 	)
 }

@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["scripts/reset-project.js", ".expo/*"]
+		"ignore": ["scripts/reset-project.js", ".expo/*", "expo-*"]
 	},
 	"formatter": {
 		"enabled": true,
