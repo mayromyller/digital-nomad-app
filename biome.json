@@ -7,7 +7,12 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["scripts/reset-project.js", ".expo/*", "expo-*"]
+		"ignore": [
+			"scripts/reset-project.js",
+			".expo/*",
+			"expo-*",
+			"./assets/icons/selection.json"
+		]
 	},
 	"formatter": {
 		"enabled": true,
