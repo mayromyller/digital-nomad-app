@@ -8,7 +8,7 @@ export default function ProtectedLayout() {
 
 	return (
 		<Stack screenOptions={{ headerShown: false }}>
-			<Stack.Screen name="(tab)" />
+			<Stack.Screen name="(tabs)" />
 		</Stack>
 	)
 }

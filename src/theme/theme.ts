@@ -32,7 +32,32 @@ const theme = createTheme({
 	},
 	textVariants: {
 		defaults: {
-			color: 'text'
+			color: 'text',
+			fontFamily: 'PoppinsRegular'
+		},
+		title28: {
+			fontSize: 28,
+			fontFamily: 'PoppinsSemiBold'
+		},
+		title22: {
+			fontSize: 22,
+			fontFamily: 'PoppinsSemiBold'
+		},
+		title16: {
+			fontSize: 16,
+			fontFamily: 'PoppinsSemiBold'
+		},
+		text18: {
+			fontSize: 18
+		},
+		text16: {
+			fontSize: 16
+		},
+		text14: {
+			fontSize: 14
+		},
+		text12: {
+			fontSize: 12
 		}
 	},
 	borderRadii: {
@@ -41,4 +66,5 @@ const theme = createTheme({
 })
 
 export type Theme = typeof theme
+export type ThemeColors = keyof Theme['colors']
 export default theme
