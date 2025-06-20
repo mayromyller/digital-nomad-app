@@ -13,7 +13,8 @@ const theme = createTheme({
 		primary: palette.fieryRed,
 		text: palette.pureWhite,
 		gray1: palette.charcoalGrey,
-		gray2: palette.stoneGrey
+		gray2: palette.stoneGrey,
+		...palette
 	},
 	spacing: {
 		s2: 2,
@@ -28,36 +29,46 @@ const theme = createTheme({
 		s32: 32,
 		s40: 40,
 		s48: 48,
-		s56: 56
+		s56: 56,
+		padding: 16
 	},
 	textVariants: {
 		defaults: {
 			color: 'text',
-			fontFamily: 'PoppinsRegular'
+			fontFamily: 'PoppinsRegular',
+			fontSize: 16,
+			lineHeight: 18
 		},
 		title28: {
 			fontSize: 28,
-			fontFamily: 'PoppinsSemiBold'
+			fontFamily: 'PoppinsSemiBold',
+			lineHeight: 30
 		},
 		title22: {
 			fontSize: 22,
-			fontFamily: 'PoppinsSemiBold'
+			fontFamily: 'PoppinsSemiBold',
+			lineHeight: 24
 		},
 		title16: {
 			fontSize: 16,
-			fontFamily: 'PoppinsSemiBold'
+			fontFamily: 'PoppinsSemiBold',
+			lineHeight: 18
 		},
 		text18: {
-			fontSize: 18
+			fontSize: 18,
+			lineHeight: 20
 		},
 		text16: {
-			fontSize: 16
+			fontSize: 16,
+			lineHeight: 18
 		},
 		text14: {
-			fontSize: 14
+			fontSize: 14,
+			lineHeight: 16
 		},
 		text12: {
-			fontSize: 12
+			fontSize: 12,
+			lineHeight: 14
 		}
 	},
 	borderRadii: {
