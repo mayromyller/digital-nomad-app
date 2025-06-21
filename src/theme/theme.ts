@@ -72,7 +72,11 @@ const theme = createTheme({
 		}
 	},
 	borderRadii: {
-		default: 16
+		default: 16,
+		full: 9999
+	},
+	boxShadows: {
+		primary: '3px 3px 10px 3px rgba(255, 75, 75, 0.4)'
 	}
 })
 

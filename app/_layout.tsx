@@ -37,7 +37,7 @@ export default function RootLayout() {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<StatusBar style="auto" />
+			<StatusBar style="light" />
 			<Stack>
 				<Stack.Screen name="(protected)" options={{ headerShown: false }} />
 				<Stack.Screen name="+not-found" />
