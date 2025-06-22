@@ -18,6 +18,12 @@ export function SearchInput({
 
 	const { colors, textVariants } = useAppTheme()
 
+	function onPressIconButton() {
+		if (value && value.length > 0) {
+			onChangeText?.('')
+		}
+	}
+
 	return (
 		<Box
 			{...boxStyle}
@@ -29,7 +35,7 @@ export function SearchInput({
 				value={value}
 				onChangeText={onChangeText}
 				placeholder={placeholder}
-				placeholderTextColor={colors.text}
+				placeholderTextColor={colors.gray2}
 				onFocus={() => setIsFocused(true)}
 				onBlur={() => setIsFocused(false)}
 				style={{
@@ -40,7 +46,10 @@ export function SearchInput({
 					flexShrink: 1
 				}}
 			/>
-			<IconButton iconName="Search-outline" onPress={() => {}} />
+			<IconButton
+				iconName={value && value.length > 0 ? 'Close' : 'Search-outline'}
+				onPress={onPressIconButton}
+			/>
 		</Box>
 	)
 }
