@@ -4,6 +4,7 @@ import { ImageBackground, Pressable } from 'react-native'
 import type { CityPreview } from '@/src/types'
 
 import { useAppTheme } from '@/src/theme/use-app-theme'
+import { BlackOpacity } from '../black-opacity/black-opacity'
 import { Box } from '../box/box'
 import { Icon } from '../icons/icons'
 import { Text } from '../text/text'
@@ -23,14 +24,7 @@ export function CityCard({ cityPreview }: CityCardProps) {
 					style={{ width: '100%', height: 280 }}
 					imageStyle={{ borderRadius: borderRadii.default }}
 				>
-					<Box
-						width="100%"
-						height="100%"
-						backgroundColor="midnightBlack"
-						opacity={0.35}
-						position="absolute"
-						pointerEvents="none"
-					/>
+					<BlackOpacity />
 					<Box flex={1} padding="s24" justifyContent="space-between">
 						<Box alignSelf="flex-end">
 							<Icon name="Favorite-outline" color="text" />
