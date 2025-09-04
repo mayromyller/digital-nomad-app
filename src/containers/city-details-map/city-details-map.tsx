@@ -1,10 +1,37 @@
+import MapView from 'react-native-maps'
+
 import { Box } from '@/src/components/box/box'
 import { Text } from '@/src/components/text/text'
+import { useAppTheme } from '@/src/theme/use-app-theme'
+import type { City } from '@/src/types'
 
-export function CityDetailsMap() {
+type CityDetailsMapProps = Pick<City, 'location'>
+
+export function CityDetailsMap({ location }: CityDetailsMapProps) {
+	const { borderRadii } = useAppTheme()
+
 	return (
 		<Box padding="padding">
-			<Text>City Details Map</Text>
+			<Text variant="title22" mb="s16">
+				Mapa
+			</Text>
+			<Box
+				style={{
+					width: '100%',
+					height: 200,
+					borderRadius: borderRadii.default,
+					overflow: 'hidden'
+				}}
+			>
+				<MapView
+					style={{ width: '100%', height: '100%' }}
+					initialRegion={{
+						...location,
+						latitudeDelta: 0.0922,
+						longitudeDelta: 0.0421
+					}}
+				/>
+			</Box>
 		</Box>
 	)
 }
