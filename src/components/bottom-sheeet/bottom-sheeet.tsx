@@ -9,7 +9,7 @@ import Animated, {
 	type SharedValue
 } from 'react-native-reanimated'
 
-type BottomSheetProps = {
+export type BottomSheetProps = {
 	onPress: () => void
 	isOpen: SharedValue<boolean>
 	duration?: number

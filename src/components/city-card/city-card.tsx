@@ -1,5 +1,9 @@
 import { Link } from 'expo-router'
-import { ImageBackground, Pressable } from 'react-native'
+import {
+	ImageBackground,
+	type ImageBackgroundProps,
+	Pressable
+} from 'react-native'
 
 import type { CityPreview } from '@/src/types'
 
@@ -11,17 +15,18 @@ import { Text } from '../text/text'
 
 type CityCardProps = {
 	cityPreview: CityPreview
+	style?: ImageBackgroundProps['style']
 }
 
-export function CityCard({ cityPreview }: CityCardProps) {
+export function CityCard({ cityPreview, style }: CityCardProps) {
 	const { borderRadii } = useAppTheme()
 
 	return (
-		<Link href={`/city-details/${cityPreview.id}`} asChild>
+		<Link push href={`/city-details/${cityPreview.id}`} asChild>
 			<Pressable>
 				<ImageBackground
 					source={cityPreview.coverImage}
-					style={{ width: '100%', height: 280 }}
+					style={[{ width: '100%', height: 280 }, style]}
 					imageStyle={{ borderRadius: borderRadii.default }}
 				>
 					<BlackOpacity />
