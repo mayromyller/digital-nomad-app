@@ -26,7 +26,7 @@ export default function HomeScreen() {
 	const { top, bottom } = useSafeAreaInsets()
 	const _paddingTop = top + spacing.s16
 
-	const { cities } = useCities({
+	const { data: cities } = useCities({
 		name: debouncedCityName,
 		categoryId: selectedCategoryId
 	})

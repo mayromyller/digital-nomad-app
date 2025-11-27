@@ -11,7 +11,8 @@
 			"scripts/reset-project.js",
 			".expo/*",
 			"expo-*",
-			"./assets/icons/selection.json"
+			"./assets/icons/selection.json",
+			"src/supabase/*"
 		]
 	},
 	"formatter": {
