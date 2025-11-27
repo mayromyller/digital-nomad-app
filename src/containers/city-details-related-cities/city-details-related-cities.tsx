@@ -12,7 +12,7 @@ type Props = Pick<City, 'id'>
 const width = Dimensions.get('window').width
 
 export function CityDetailsRelatedCities({ id }: Props) {
-	const cities = useRelatedCities(id)
+	const { data: cities } = useRelatedCities(id)
 
 	const { spacing } = useAppTheme()
 	const { bottom } = useSafeAreaInsets()
@@ -34,7 +34,7 @@ export function CityDetailsRelatedCities({ id }: Props) {
 					gap: spacing.s16
 				}}
 			>
-				{cities.map((city) => (
+				{cities?.map((city) => (
 					<CityCard
 						key={city.id}
 						cityPreview={city}

@@ -78,8 +78,19 @@ async function findById(id: string): Promise<City> {
 	return supabaseAdapter.toCity(data)
 }
 
+async function getRelatedCities(cityId: string): Promise<CityPreview[]> {
+	const { data, error } = await supabase
+		.from('related_cities')
+		.select('*')
+		.eq('source_city_id', cityId)
+		.throwOnError()
+
+	return data.map(supabaseAdapter.toCityPreview)
+}
+
 export const supabaseService = {
 	finAll,
 	findById,
-	listCategory
+	listCategory,
+	getRelatedCities
 }
