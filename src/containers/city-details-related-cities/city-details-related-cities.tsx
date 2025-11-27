@@ -7,12 +7,12 @@ import type { City } from '@/src/types'
 import { Dimensions, ScrollView } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-type Props = Pick<City, 'relatedCitiesIds'>
+type Props = Pick<City, 'id'>
 
 const width = Dimensions.get('window').width
 
-export function CityDetailsRelatedCities({ relatedCitiesIds }: Props) {
-	const cities = useRelatedCities(relatedCitiesIds)
+export function CityDetailsRelatedCities({ id }: Props) {
+	const cities = useRelatedCities(id)
 
 	const { spacing } = useAppTheme()
 	const { bottom } = useSafeAreaInsets()

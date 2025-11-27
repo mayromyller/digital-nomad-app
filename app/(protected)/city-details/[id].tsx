@@ -13,10 +13,10 @@ import { useCityDetails } from '@/src/data/use-cities-details'
 import { Pressable } from 'react-native'
 import { useSharedValue } from 'react-native-reanimated'
 
-export default function CityDetails() {
+export default function city() {
 	const { id } = useLocalSearchParams<{ id: string }>()
 
-	const cityDetails = useCityDetails(id)
+	const { city } = useCityDetails(id)
 
 	const bottomSheetIsOpen = useSharedValue(false)
 
@@ -24,7 +24,7 @@ export default function CityDetails() {
 		bottomSheetIsOpen.value = !bottomSheetIsOpen.value
 	}
 
-	if (!cityDetails) {
+	if (!city) {
 		return (
 			<Screen alignItems="center" justifyContent="center">
 				<Text>City not found</Text>
@@ -36,32 +36,30 @@ export default function CityDetails() {
 		<>
 			<Screen style={{ paddingHorizontal: 0 }} scrollable>
 				<CityDetailsHeader
-					id={cityDetails.id}
-					categories={cityDetails.categories}
-					coverImage={cityDetails.coverImage}
+					id={city.id}
+					categories={city.categories}
+					coverImage={city.coverImage}
 				/>
 				<CityDetailsInfo
-					name={cityDetails.name}
-					description={cityDetails.description}
-					country={cityDetails.country}
+					name={city.name}
+					description={city.description}
+					country={city.country}
 				/>
 				<Divider paddingHorizontal="padding" />
 				<CityDetailsTouristAttraction
-					touristAttractions={cityDetails.touristAttractions}
+					touristAttractions={city.touristAttractions}
 				/>
 				<Divider paddingHorizontal="padding" />
 				<Pressable onPress={toggleBottomSheet}>
-					<CityDetailsMap location={cityDetails.location} />
+					<CityDetailsMap location={city.location} />
 				</Pressable>
 
 				<Divider paddingHorizontal="padding" />
-				<CityDetailsRelatedCities
-					relatedCitiesIds={cityDetails.relatedCitiesIds}
-				/>
+				<CityDetailsRelatedCities id={city.id} />
 			</Screen>
 
 			<BottomSheetMap
-				location={cityDetails.location}
+				location={city.location}
 				isOpen={bottomSheetIsOpen}
 				onPress={toggleBottomSheet}
 			/>

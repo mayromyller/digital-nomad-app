@@ -1,7 +1,6 @@
-import type { CategoryCode, CityPreview } from '../types'
+import type { CategoryCode, City, CityPreview } from '../types'
 import { supabase } from './supabase'
-
-const storageURL = process.env.EXPO_PUBLIC_SUPABASE_STORAGE_URL
+import { storageURL, supabaseAdapter } from './supabase-adapter'
 
 export type CityFilter = {
 	name?: string
@@ -65,7 +64,22 @@ async function listCategory() {
 	}))
 }
 
+async function findById(id: string): Promise<City> {
+	const { data, error } = await supabase
+		.from('cities_with_full_info')
+		.select('*')
+		.eq('id', id)
+		.single()
+
+	if (error) {
+		throw new Error('error trying to find city by id')
+	}
+
+	return supabaseAdapter.toCity(data)
+}
+
 export const supabaseService = {
 	finAll,
+	findById,
 	listCategory
 }
