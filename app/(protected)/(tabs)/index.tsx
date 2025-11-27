@@ -31,7 +31,7 @@ export default function HomeScreen() {
 		categoryId: selectedCategoryId
 	})
 
-	const { categories } = useCategories()
+	const { data: categories } = useCategories()
 
 	const flatListRef = useRef(null)
 	useScrollToTop(flatListRef)
