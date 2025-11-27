@@ -4,7 +4,7 @@ import { Box } from '@/src/components/box/box'
 import { CityCard } from '@/src/components/city-card/city-card'
 import { Screen } from '@/src/components/screen/screen'
 import { CityFilter } from '@/src/containers/city-filter/city-filter'
-import { categories } from '@/src/data/categories'
+import { useCategories } from '@/src/data/use-categories'
 import { useCities } from '@/src/data/useCities'
 import { useDebounce } from '@/src/hooks/use-debounce'
 import { useAppTheme } from '@/src/theme/use-app-theme'
@@ -26,10 +26,12 @@ export default function HomeScreen() {
 	const { top, bottom } = useSafeAreaInsets()
 	const _paddingTop = top + spacing.s16
 
-	const { cityPreviewList } = useCities({
+	const { cities } = useCities({
 		name: debouncedCityName,
 		categoryId: selectedCategoryId
 	})
+
+	const { categories } = useCategories()
 
 	const flatListRef = useRef(null)
 	useScrollToTop(flatListRef)
@@ -52,7 +54,7 @@ export default function HomeScreen() {
 					paddingTop: _paddingTop,
 					paddingBottom: bottom
 				}}
-				data={cityPreviewList}
+				data={cities}
 				renderItem={renderItem}
 				showsVerticalScrollIndicator={false}
 				keyExtractor={(item) => item.id}

@@ -1,5 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
-import 'expo-sqlite/localStorage/install'
+import Storage from 'expo-sqlite/kv-store'
+
+import type { Database } from './types'
 
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL
 const supabasePublishableKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY
@@ -14,11 +16,11 @@ function getEnvs(): { url: string; key: string } {
 
 const envs = getEnvs()
 
-export const supabase = createClient(envs.url, envs.key, {
+export const supabase = createClient<Database>(envs.url, envs.key, {
 	auth: {
-		storage: localStorage,
+		storage: Storage,
 		autoRefreshToken: true,
 		persistSession: true,
-		detectSessionInUrl: false
-	}
+		detectSessionInUrl: false,
+	},
 })

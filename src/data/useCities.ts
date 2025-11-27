@@ -1,26 +1,35 @@
+import { useEffect, useState } from 'react'
+import { type CityFilter, supabaseService } from '../supabase/supabase-service'
 import type { CityPreview } from '../types'
-import { cities } from './cities'
 
-type CityFilter = {
-	name?: string
-	categoryId?: string | null
+type UseCitiesReturn = {
+	cities?: CityPreview[]
+	isLoading: boolean
+	error: unknown
 }
 
-export function useCities({ name, categoryId }: CityFilter): {
-	cityPreviewList: CityPreview[]
-} {
-	let cityPreviewList = [...cities]
+export function useCities(filters: CityFilter): UseCitiesReturn {
+	const [cities, setCities] = useState<CityPreview[]>([])
+	const [isLoading, setIsLoading] = useState<boolean>(true)
+	const [error, setError] = useState<unknown>(null)
 
-	if (name) {
-		cityPreviewList = cityPreviewList.filter((city) => {
-			return city.name.toLowerCase().includes(name.toLowerCase())
-		})
+	async function fetchCities() {
+		try {
+			setIsLoading(true)
+			const data = await supabaseService.finAll(filters)
+			console.log('Fetched cities:', data[0].coverImage)
+			setCities(data)
+		} catch (error) {
+			setError(error)
+		} finally {
+			setIsLoading(false)
+		}
 	}
 
-	if (categoryId) {
-		cityPreviewList = cityPreviewList.filter((city) => {
-			return city.categories.some((category) => category.id === categoryId)
-		})
-	}
-	return { cityPreviewList }
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	useEffect(() => {
+		fetchCities()
+	}, [filters.name, filters.categoryId])
+
+	return { cities, isLoading, error }
 }

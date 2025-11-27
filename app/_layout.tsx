@@ -8,6 +8,10 @@ import { ThemeProvider } from '@shopify/restyle'
 
 import theme from '@/src/theme/theme'
 
+if (__DEV__) {
+	require('../ReactotronConfig')
+}
+
 export default function RootLayout() {
 	const [loaded] = useFonts({
 		IcoMoon: require('../assets/icons/icomoon.ttf'),

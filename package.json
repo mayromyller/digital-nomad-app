@@ -49,6 +49,7 @@
     "@biomejs/biome": "1.9.4",
     "@types/react": "~19.0.10",
     "lefthook": "^1.11.13",
+    "reactotron-react-native": "^5.1.18",
     "typescript": "~5.8.3"
   },
   "private": true
