@@ -9,14 +9,14 @@ import { CityDetailsInfo } from '@/src/containers/city-details-info/city-details
 import { CityDetailsMap } from '@/src/containers/city-details-map/city-details-map'
 import { CityDetailsRelatedCities } from '@/src/containers/city-details-related-cities/city-details-related-cities'
 import { CityDetailsTouristAttraction } from '@/src/containers/city-details-tourist-attraction/city-details-tourist-attraction'
-import { useCityDetails } from '@/src/data/use-cities-details'
+import { useCityFindById } from '@/src/domain/city/operations/use-city-find-by-id'
 import { Pressable } from 'react-native'
 import { useSharedValue } from 'react-native-reanimated'
 
 export default function city() {
 	const { id } = useLocalSearchParams<{ id: string }>()
 
-	const { data: city } = useCityDetails(id)
+	const { data: city } = useCityFindById(id)
 
 	const bottomSheetIsOpen = useSharedValue(false)
 

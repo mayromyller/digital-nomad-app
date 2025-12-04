@@ -8,7 +8,6 @@ import { useCategories } from '@/src/data/use-categories'
 import type { CityPreview } from '@/src/domain/city/city'
 import { useCityFindAll } from '@/src/domain/city/operations/use-city-find-all'
 import { useDebounce } from '@/src/hooks/use-debounce'
-import { InMemoryCityRepository } from '@/src/infra/in-memory/in-memory-city-repository'
 import { useAppTheme } from '@/src/theme/use-app-theme'
 import { useScrollToTop } from '@react-navigation/native'
 import { useRef, useState } from 'react'
@@ -27,13 +26,10 @@ export default function HomeScreen() {
 	const { top, bottom } = useSafeAreaInsets()
 	const _paddingTop = top + spacing.s16
 
-	const { data: cities } = useCityFindAll(
-		{
-			name: debouncedCityName,
-			categoryId: selectedCategoryId
-		},
-		new InMemoryCityRepository()
-	)
+	const { data: cities } = useCityFindAll({
+		name: debouncedCityName,
+		categoryId: selectedCategoryId
+	})
 
 	const { data: categories } = useCategories()
 

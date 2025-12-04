@@ -1,14 +1,13 @@
 import { useFetchData } from '@/src/data/use-fetch-data'
 
+import { useRepository } from '@/src/infra/repositories/repository-provider'
 import type { CityFilter } from '../city'
-import type { CityRepository } from '../city-repository'
 
-export function useCityFindAll(
-	filters: CityFilter,
-	repository: CityRepository
-) {
+export function useCityFindAll(filters: CityFilter) {
+	const { city } = useRepository()
+
 	return useFetchData(
-		() => repository.finAll(filters),
+		() => city.finAll(filters),
 		[filters.name, filters.categoryId]
 	)
 }

@@ -6,6 +6,8 @@ import { StatusBar } from 'expo-status-bar'
 
 import { ThemeProvider } from '@shopify/restyle'
 
+import { InMemoryRepository } from '@/src/infra/repositories/adapters/in-memory'
+import { RepositoryProvider } from '@/src/infra/repositories/repository-provider'
 import theme from '@/src/theme/theme'
 
 if (__DEV__) {
@@ -40,17 +42,19 @@ export default function RootLayout() {
 	}
 
 	return (
-		<ThemeProvider theme={theme}>
-			<StatusBar style="light" />
-			<Stack
-				screenOptions={{
-					contentStyle: { backgroundColor: theme.colors.background }
-				}}
-			>
-				<Stack.Screen name="(protected)" options={{ headerShown: false }} />
-				<Stack.Screen name="+not-found" />
-				<Stack.Screen name="sign-in" />
-			</Stack>
-		</ThemeProvider>
+		<RepositoryProvider value={InMemoryRepository}>
+			<ThemeProvider theme={theme}>
+				<StatusBar style="light" />
+				<Stack
+					screenOptions={{
+						contentStyle: { backgroundColor: theme.colors.background }
+					}}
+				>
+					<Stack.Screen name="(protected)" options={{ headerShown: false }} />
+					<Stack.Screen name="+not-found" />
+					<Stack.Screen name="sign-in" />
+				</Stack>
+			</ThemeProvider>
+		</RepositoryProvider>
 	)
 }
