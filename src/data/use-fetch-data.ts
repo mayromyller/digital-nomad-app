@@ -7,7 +7,8 @@ type UseFetchDataReturn<DataT> = {
 }
 
 export function useFetchData<DataT>(
-	fetchData: () => Promise<DataT>
+	fetchData: () => Promise<DataT>,
+	dependencies: React.DependencyList = []
 ): UseFetchDataReturn<DataT> {
 	const [data, setData] = useState<DataT>()
 	const [isLoading, setIsLoading] = useState(true)
@@ -29,7 +30,7 @@ export function useFetchData<DataT>(
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		_fetchData()
-	}, [])
+	}, dependencies)
 
 	return {
 		data,

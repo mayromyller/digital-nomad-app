@@ -12,7 +12,8 @@
 			".expo/*",
 			"expo-*",
 			"./assets/icons/selection.json",
-			"src/supabase/*"
+			"src/supabase/*",
+			"package.json"
 		]
 	},
 	"formatter": {
