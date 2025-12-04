@@ -1,11 +1,10 @@
-import type { CategoryCode, City, CityPreview } from '../types'
+import { CategoryCode } from '../domain/category/category'
+import { City, CityFilter, CityPreview } from '../domain/city/city'
+import { CityRepository } from '../domain/city/city-repository'
 import { supabase } from './supabase'
 import { storageURL, supabaseAdapter } from './supabase-adapter'
 
-export type CityFilter = {
-	name?: string
-	categoryId?: string | null
-}
+
 
 async function finAll(filters: CityFilter): Promise<CityPreview[]> {
 	try {
@@ -88,9 +87,8 @@ async function getRelatedCities(cityId: string): Promise<CityPreview[]> {
 	return data.map(supabaseAdapter.toCityPreview)
 }
 
-export const supabaseService = {
+export const supabaseCityRepository: CityRepository = {
 	finAll,
 	findById,
-	listCategory,
 	getRelatedCities
 }

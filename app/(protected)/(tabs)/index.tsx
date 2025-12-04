@@ -5,10 +5,11 @@ import { CityCard } from '@/src/components/city-card/city-card'
 import { Screen } from '@/src/components/screen/screen'
 import { CityFilter } from '@/src/containers/city-filter/city-filter'
 import { useCategories } from '@/src/data/use-categories'
-import { useCities } from '@/src/data/useCities'
+import type { CityPreview } from '@/src/domain/city/city'
+import { useCityFindAll } from '@/src/domain/city/operations/use-city-find-all'
 import { useDebounce } from '@/src/hooks/use-debounce'
+import { InMemoryCityRepository } from '@/src/infra/in-memory/in-memory-city-repository'
 import { useAppTheme } from '@/src/theme/use-app-theme'
-import type { CityPreview } from '@/src/types'
 import { useScrollToTop } from '@react-navigation/native'
 import { useRef, useState } from 'react'
 import Animated, { FadingTransition } from 'react-native-reanimated'
@@ -26,10 +27,13 @@ export default function HomeScreen() {
 	const { top, bottom } = useSafeAreaInsets()
 	const _paddingTop = top + spacing.s16
 
-	const { data: cities } = useCities({
-		name: debouncedCityName,
-		categoryId: selectedCategoryId
-	})
+	const { data: cities } = useCityFindAll(
+		{
+			name: debouncedCityName,
+			categoryId: selectedCategoryId
+		},
+		new InMemoryCityRepository()
+	)
 
 	const { data: categories } = useCategories()
 
