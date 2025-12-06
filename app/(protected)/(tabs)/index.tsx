@@ -1,18 +1,18 @@
+import { useScrollToTop } from '@react-navigation/native'
+import { useRef, useState } from 'react'
 import type { ListRenderItemInfo } from 'react-native'
+import Animated, { FadingTransition } from 'react-native-reanimated'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { Box } from '@/src/components/box/box'
 import { CityCard } from '@/src/components/city-card/city-card'
 import { Screen } from '@/src/components/screen/screen'
 import { CityFilter } from '@/src/containers/city-filter/city-filter'
-import { useCategories } from '@/src/data/use-categories'
+import { useCategoryFindAll } from '@/src/domain/category/operations/use-category-find-all'
 import type { CityPreview } from '@/src/domain/city/city'
 import { useCityFindAll } from '@/src/domain/city/operations/use-city-find-all'
 import { useDebounce } from '@/src/hooks/use-debounce'
 import { useAppTheme } from '@/src/theme/use-app-theme'
-import { useScrollToTop } from '@react-navigation/native'
-import { useRef, useState } from 'react'
-import Animated, { FadingTransition } from 'react-native-reanimated'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 export default function HomeScreen() {
 	const [cityName, setCityName] = useState('')
@@ -31,7 +31,7 @@ export default function HomeScreen() {
 		categoryId: selectedCategoryId
 	})
 
-	const { data: categories } = useCategories()
+	const { data: categories } = useCategoryFindAll()
 
 	const flatListRef = useRef(null)
 	useScrollToTop(flatListRef)
