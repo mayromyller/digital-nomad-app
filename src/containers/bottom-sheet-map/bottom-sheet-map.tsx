@@ -7,8 +7,8 @@ import {
 } from '@/src/components/bottom-sheeet/bottom-sheeet'
 import { Box } from '@/src/components/box/box'
 import { IconButton } from '@/src/components/icon-button/icon-button'
+import type { City } from '@/src/domain/city/city'
 import { useAppTheme } from '@/src/theme/use-app-theme'
-import type { City } from '@/src/types'
 
 type BottomSheetMapProps = {
 	location: City['location']

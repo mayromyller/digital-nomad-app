@@ -8,7 +8,7 @@ import { CategoryPill } from '@/src/components/category-pill/category-pill'
 import { IconButton } from '@/src/components/icon-button/icon-button'
 import { Icon } from '@/src/components/icons/icons'
 import { PILL_HEIGHT } from '@/src/components/pill/pill'
-import type { City } from '@/src/types'
+import type { City } from '@/src/domain/city/city'
 
 type CityDetailsHeaderProps = Pick<City, 'id' | 'categories' | 'coverImage'>
 

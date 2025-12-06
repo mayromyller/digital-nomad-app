@@ -1,4 +1,4 @@
-import type { Category, CategoryCode } from '@/src/types'
+import type { Category, CategoryCode } from '@/src/domain/category/category'
 import type { IconName } from '../icons/icons'
 import { Pill, type PillProps } from '../pill/pill'
 
