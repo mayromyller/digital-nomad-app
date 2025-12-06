@@ -13,7 +13,8 @@
 			"expo-*",
 			"./assets/icons/selection.json",
 			"src/supabase/*",
-			"package.json"
+			"package.json",
+			"./ReactotronConfig.js"
 		]
 	},
 	"formatter": {
