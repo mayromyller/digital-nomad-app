@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar'
 
 import { ThemeProvider } from '@shopify/restyle'
 
-import { InMemoryRepository } from '@/src/infra/repositories/adapters/in-memory'
+import { SupabaseRepositories } from '@/src/infra/repositories/adapters/supabase'
 import { RepositoryProvider } from '@/src/infra/repositories/repository-provider'
 import theme from '@/src/theme/theme'
 
@@ -42,7 +42,7 @@ export default function RootLayout() {
 	}
 
 	return (
-		<RepositoryProvider value={InMemoryRepository}>
+		<RepositoryProvider value={SupabaseRepositories}>
 			<ThemeProvider theme={theme}>
 				<StatusBar style="light" />
 				<Stack
