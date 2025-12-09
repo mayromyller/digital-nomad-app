@@ -3,7 +3,7 @@ import { useAppTheme } from '@/src/ui/theme/use-app-theme'
 import createIconSetFromIcoMoon from '@expo/vector-icons/createIconSetFromIcoMoon'
 
 const IcoMoon = createIconSetFromIcoMoon(
-	require('../../../assets/icons/selection.json'),
+	require('../../../../assets/icons/selection.json'),
 	'IcoMoon',
 	'icomoon.ttf'
 )
