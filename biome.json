@@ -14,7 +14,9 @@
 			"./assets/icons/selection.json",
 			"src/supabase/*",
 			"package.json",
-			"./ReactotronConfig.js"
+			"./ReactotronConfig.js",
+			"./src/infra/repositories/adapters/supabase/types.ts",
+			"./src/infra/repositories/adapters/supabase/*"
 		]
 	},
 	"formatter": {
