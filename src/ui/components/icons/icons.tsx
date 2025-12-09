@@ -1,5 +1,5 @@
-import type { ThemeColors } from '@/src/theme/theme'
-import { useAppTheme } from '@/src/theme/use-app-theme'
+import type { ThemeColors } from '@/src/ui/theme/theme'
+import { useAppTheme } from '@/src/ui/theme/use-app-theme'
 import createIconSetFromIcoMoon from '@expo/vector-icons/createIconSetFromIcoMoon'
 
 const IcoMoon = createIconSetFromIcoMoon(

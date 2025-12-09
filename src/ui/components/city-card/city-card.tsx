@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 
 import type { CityPreview } from '@/src/domain/city/city'
-import { useAppTheme } from '@/src/theme/use-app-theme'
+import { useAppTheme } from '@/src/ui/theme/use-app-theme'
 import { BlackOpacity } from '../black-opacity/black-opacity'
 import { Box } from '../box/box'
 import { Icon } from '../icons/icons'

@@ -1,9 +1,9 @@
-import { Box } from '@/src/components/box/box'
-import { CityCard } from '@/src/components/city-card/city-card'
-import { Text } from '@/src/components/text/text'
 import type { City } from '@/src/domain/city/city'
 import { useGetRelatedCities } from '@/src/domain/city/operations/use-get-related-cities'
-import { useAppTheme } from '@/src/theme/use-app-theme'
+import { Box } from '@/src/ui/components/box/box'
+import { CityCard } from '@/src/ui/components/city-card/city-card'
+import { Text } from '@/src/ui/components/text/text'
+import { useAppTheme } from '@/src/ui/theme/use-app-theme'
 import { Dimensions, ScrollView } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 

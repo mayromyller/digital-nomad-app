@@ -2,13 +2,13 @@ import { router } from 'expo-router'
 import { ImageBackground, ScrollView } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { BlackOpacity } from '@/src/components/black-opacity/black-opacity'
-import { Box } from '@/src/components/box/box'
-import { CategoryPill } from '@/src/components/category-pill/category-pill'
-import { IconButton } from '@/src/components/icon-button/icon-button'
-import { Icon } from '@/src/components/icons/icons'
-import { PILL_HEIGHT } from '@/src/components/pill/pill'
 import type { City } from '@/src/domain/city/city'
+import { BlackOpacity } from '@/src/ui/components/black-opacity/black-opacity'
+import { Box } from '@/src/ui/components/box/box'
+import { CategoryPill } from '@/src/ui/components/category-pill/category-pill'
+import { IconButton } from '@/src/ui/components/icon-button/icon-button'
+import { Icon } from '@/src/ui/components/icons/icons'
+import { PILL_HEIGHT } from '@/src/ui/components/pill/pill'
 
 type CityDetailsHeaderProps = Pick<City, 'id' | 'categories' | 'coverImage'>
 

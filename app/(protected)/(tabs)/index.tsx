@@ -4,15 +4,15 @@ import type { ListRenderItemInfo } from 'react-native'
 import Animated, { FadingTransition } from 'react-native-reanimated'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { Box } from '@/src/components/box/box'
-import { CityCard } from '@/src/components/city-card/city-card'
-import { Screen } from '@/src/components/screen/screen'
-import { CityFilter } from '@/src/containers/city-filter/city-filter'
 import { useCategoryFindAll } from '@/src/domain/category/operations/use-category-find-all'
 import type { CityPreview } from '@/src/domain/city/city'
 import { useCityFindAll } from '@/src/domain/city/operations/use-city-find-all'
 import { useDebounce } from '@/src/hooks/use-debounce'
-import { useAppTheme } from '@/src/theme/use-app-theme'
+import { Box } from '@/src/ui/components/box/box'
+import { CityCard } from '@/src/ui/components/city-card/city-card'
+import { Screen } from '@/src/ui/components/screen/screen'
+import { CityFilter } from '@/src/ui/containers/city-filter/city-filter'
+import { useAppTheme } from '@/src/ui/theme/use-app-theme'
 
 export default function HomeScreen() {
 	const [cityName, setCityName] = useState('')

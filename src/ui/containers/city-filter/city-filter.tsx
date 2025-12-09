@@ -1,9 +1,9 @@
 import { ScrollView } from 'react-native'
 
-import { Box } from '@/src/components/box/box'
-import { CategoryPill } from '@/src/components/category-pill/category-pill'
-import { SearchInput } from '@/src/components/search-input/search-input'
 import type { Category } from '@/src/domain/category/category'
+import { Box } from '@/src/ui/components/box/box'
+import { CategoryPill } from '@/src/ui/components/category-pill/category-pill'
+import { SearchInput } from '@/src/ui/components/search-input/search-input'
 
 type CityFilterProps = {
 	categories?: Category[]

@@ -1,4 +1,4 @@
-import { useAppTheme } from '@/src/theme/use-app-theme'
+import { useAppTheme } from '@/src/ui/theme/use-app-theme'
 import { useState } from 'react'
 import { TextInput, type TextInputProps } from 'react-native'
 import { Box, type BoxProps } from '../box/box'

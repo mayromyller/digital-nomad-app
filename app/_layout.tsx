@@ -8,7 +8,7 @@ import { ThemeProvider } from '@shopify/restyle'
 
 import { SupabaseRepositories } from '@/src/infra/repositories/adapters/supabase'
 import { RepositoryProvider } from '@/src/infra/repositories/repository-provider'
-import theme from '@/src/theme/theme'
+import theme from '@/src/ui/theme/theme'
 
 if (__DEV__) {
 	require('../ReactotronConfig')

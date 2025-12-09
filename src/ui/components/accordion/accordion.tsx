@@ -1,8 +1,8 @@
 import { Pressable, StyleSheet, View } from 'react-native'
 
-import theme from '@/src/theme/theme'
+import theme from '@/src/ui/theme/theme'
 
-import { useAppTheme } from '@/src/theme/use-app-theme'
+import { useAppTheme } from '@/src/ui/theme/use-app-theme'
 import Animated, {
 	interpolate,
 	interpolateColor,

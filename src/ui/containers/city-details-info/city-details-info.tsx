@@ -1,6 +1,6 @@
-import { Box } from '@/src/components/box/box'
-import { Text } from '@/src/components/text/text'
 import type { City } from '@/src/domain/city/city'
+import { Box } from '@/src/ui/components/box/box'
+import { Text } from '@/src/ui/components/text/text'
 
 type CityDetailsInfoProps = Pick<City, 'name' | 'country' | 'description'>
 
